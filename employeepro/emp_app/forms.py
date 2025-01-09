@@ -9,3 +9,8 @@ class EmployeeForm(forms.ModelForm):
         model = Employee
 
         fields = "__all__"
+
+        widgets ={
+            "date_of_join" : forms.DateInput(attrs={"type":"date"}),
+            "dob" : forms.DateInput(attrs={"type":"date"})
+        }
