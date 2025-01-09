@@ -45,10 +45,25 @@ class EmployeeListView(View):
 
     template_name = "emp_list.html"
 
-    form_class = EmployeeForm
-
     def get(self,request,*args,**kwargs):
 
         qs = Employee.objects.all()
 
         return render(request,self.template_name,{"data":qs})
+    
+
+class EmployeeDetailView(View):
+
+    template_name = "emp_detail.html"
+
+    def get(self,request,*args,**kwargs):
+
+        # extract pk from url
+        id = kwargs.get("pk")
+
+        qs = Employee.objects.get(id=id)
+
+        return render(request,self.template_name,{"data":qs})
+    
+
+
