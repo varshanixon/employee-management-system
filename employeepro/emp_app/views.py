@@ -77,4 +77,21 @@ class EmployeeRemoveView(View):
         return redirect("employee-list")
     
 
+class EmployeeUpdateView(View):
 
+    template_name = "emp_update.html"
+
+    form_class = EmployeeForm
+
+    def get(self,request,*args,**kwargs):
+
+        id = kwargs.get("pk")
+
+        employee_object = Employee.objects.get(id=id)
+
+        # initialize form_instance with employee_object
+
+        form_instance = self.form_class(instance=employee_object)
+
+        return render(request,self.template_name,{"form":form_instance})
+    
