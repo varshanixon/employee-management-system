@@ -4,6 +4,8 @@ from django.views.generic import View
 
 from emp_app.forms import EmployeeForm
 
+from emp_app.models import Employee
+
 # Create your views here.
 
 class EmployeeCreateView(View):
@@ -38,3 +40,15 @@ class EmployeeCreateView(View):
         
         return render(request,self.template_name,{"form":form_instance})
     
+
+class EmployeeListView(View):
+
+    template_name = "emp_list.html"
+
+    form_class = EmployeeForm
+
+    def get(self,request,*args,**kwargs):
+
+        qs = Employee.objects.all()
+
+        return render(request,self.template_name,{"data":qs})
