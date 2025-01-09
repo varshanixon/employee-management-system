@@ -95,3 +95,22 @@ class EmployeeUpdateView(View):
 
         return render(request,self.template_name,{"form":form_instance})
     
+    def post(self,request,*args,**kwargs):
+
+        id = kwargs.get("pk")
+
+        employee_object = Employee.objects.get(id=id)
+
+        form_data = request.POST
+
+        form_instance = self.form_class(form_data,files=request.FILES,instance=employee_object)
+
+        if form_instance.is_valid():
+
+            form_instance.save()
+
+            return redirect('employee-list')
+        
+        return render(request,self.template_name,{"form":form_instance})
+
+
