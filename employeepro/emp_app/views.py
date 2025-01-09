@@ -35,3 +35,6 @@ class EmployeeCreateView(View):
             form_instance.save()
 
             return redirect("employee-add")
+        
+        return render(request,self.template_name,{"form":form_instance})
+    
