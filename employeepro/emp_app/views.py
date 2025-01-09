@@ -66,4 +66,15 @@ class EmployeeDetailView(View):
         return render(request,self.template_name,{"data":qs})
     
 
+class EmployeeRemoveView(View):
+
+    def get(self,request,*args,**kwargs):
+
+        id = kwargs.get("pk")
+
+        Employee.objects.get(id=id).delete()
+
+        return redirect("employee-list")
+    
+
 

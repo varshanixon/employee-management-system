@@ -29,4 +29,6 @@ urlpatterns = [
 
     path('employee/<int:pk>/',views.EmployeeDetailView.as_view(),name="employee-detail"),
 
+    path('employee/<int:pk>/remove/',views.EmployeeRemoveView.as_view(),name="employee-delete"),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
