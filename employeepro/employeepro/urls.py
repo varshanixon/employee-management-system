@@ -27,4 +27,6 @@ urlpatterns = [
 
     path('employee/all/',views.EmployeeListView.as_view(),name="employee-list"),
 
+    path('employee/<int:pk>/',views.EmployeeDetailView.as_view(),name="employee-detail")
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
