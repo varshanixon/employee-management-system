@@ -1,0 +1,25 @@
+EMPLOYEE MANAGEMENT SYSTEM
+
+Functionalities:
+-EmployeeAdd
+-EmployeeList
+-EmployeeDetail
+-EmployeeUpdate
+-EmployeeRemove
+-EmployeeFilter
+
+Model:
+
+Employee:
+=id
+=name
+=email
+=address
+=department
+=salary
+=date_of_join
+=gender
+=dob
+=picture
+
+
