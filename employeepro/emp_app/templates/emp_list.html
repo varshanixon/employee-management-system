@@ -20,6 +20,7 @@
                 <th>GENDER</th>
                 <th>DOB</th>
                 <th>PICTURE</th>
+                <th>ACTION</th>
             </tr>
             {%for e in data%}
             <tr>
@@ -35,6 +36,9 @@
                     {%if e.picture%}
                     <img src="{{e.picture.url}}" alt="Picture of {{e.name}}" class="w-50 h-50">
                     {%endif%}
+                </td>
+                <td>
+                    <a href="{%url 'employee-detail'%}">view</a>
                 </td>
             </tr>
             {%endfor%}
